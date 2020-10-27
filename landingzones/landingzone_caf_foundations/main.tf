@@ -3,7 +3,13 @@ provider "azurerm" {
 }
 
 terraform {
-  backend "azurerm" {
+  backend "remote" {
+    hostname  = "app.terraform.io"
+    organization = "contosome"
+
+    workspaces {
+      name = "test-landingzone-caf-foundations"
+    }
   }
 }
 
